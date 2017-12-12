@@ -41,4 +41,3 @@ def zahlenraum():
     zahl2_max = zahlenraum_2.pop()
     zahl2_min = zahlenraum_2.pop()
 
-zahlenraum()
