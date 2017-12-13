@@ -34,27 +34,39 @@ def zahlenraum():
 
             zahl1_max = int(zahlenraum_1.pop())
             zahl1_min = int(zahlenraum_1.pop())
-            break
+
+            if zahl1_max < zahl1_min or zahl1_max < 0 or zahl1_min < 0:
+                msgbox("Sorry, da war was bei deiner Eingabe falsch")
+            else:
+                break
 
         except ValueError:
-            msgbox("Sorry, das war keine natuerliche Zahl")
+            msgbox("Sorry, da war was bei deiner Eingabe falsch")
 
 
-        msg = "Sorry, das war keine natuerliche Zahl"
-        title = "Zahlenraum"
-        fields = ["min. Zahl","max. Zahl"]
-        values = [1,100]
 
-        zahlenraum_1 = multenterbox(msg,title,fields,values)
-        zahl1_max = zahlenraum_1.pop()
-        zahl1_min = zahlenraum_1.pop()
+    while True:
+
+            try:
+                msg = "In welchem Bereich soll die zweite Zahl liegen?"
+                title = "Zahlenraum"
+                fields = ["min. Zahl","max. Zahl"]
+                values = [1,100]
+
+                zahlenraum_2 = multenterbox(msg,title,fields,values)
+
+                zahl2_max = int(zahlenraum_2.pop())
+                zahl2_min = int(zahlenraum_2.pop())
+
+                if zahl2_max < zahl2_min or zahl2_max < 0 or zahl2_min < 0:
+                    msgbox("Sorry, da war was bei deiner Eingabe falsch")
+                else:
+                    break
+
+            except ValueError:
+                msgbox("Sorry, da war was bei deiner Eingabe falsch")
 
 
-    msg = "In welchem Bereich soll die zweite Zahl liegen?"
-    title = "Zahlenraum"
-    fields = ["min.","max. Zahl"]
-    values = [1,100]
 
-    zahlenraum_2 = multenterbox(msg,title,fields,values)
-    zahl2_max = zahlenraum_2.pop()
-    zahl2_min = zahlenraum_2.pop()
+
+zahlenraum()
