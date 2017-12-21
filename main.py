@@ -145,7 +145,7 @@ def Addition():
                     eingabe_korrigiert = int(eingabe)
                     break
 
-            except ValueError:
+            except:
                 msgbox("Sorry da was bei deiner Eingabe falsch\n(z.B. falsche Zahlenart oder Komma statt Punkt bei Kommazahlen)")
 
 
@@ -212,7 +212,7 @@ def Subtraktion():
                     eingabe_korrigiert = int(eingabe)
                     break
 
-            except ValueError:
+            except:
                 msgbox("Sorry da war was bei deiner Eingabe falsch\n(z.B. falsche Zahlenart oder Komma statt Punkt bei Kommazahlen)")
 
 
@@ -279,7 +279,7 @@ def Multiplikation():
                     eingabe_korrigiert = int(eingabe)
                     break
 
-            except ValueError:
+            except:
                 msgbox("Sorry da war was bei deiner Eingabe falsch\n(z.B. falsche Zahlenart oder Komma statt Punkt bei Kommazahlen)")
 
 
@@ -346,7 +346,7 @@ def Division():
                     eingabe_korrigiert = float(eingabe)
                     break
 
-            except ValueError:
+            except:
                 msgbox("Sorry da war was bei deiner Eingabe falsch\n(z.B. falsche Zahlenart oder Komma statt Punkt bei Kommazahlen)")
 
 
@@ -407,7 +407,7 @@ def zahlenraum():
             else:
                 break
 
-        except ValueError:
+        except:
             msgbox("Sorry, da war was bei deiner Eingabe falsch")
 
 
@@ -430,7 +430,7 @@ def zahlenraum():
                 else:
                     break
 
-            except ValueError:
+            except:
                 msgbox("Sorry, da war was bei deiner Eingabe falsch")
 #----------------------------------------------------------------------------------------------------
 
