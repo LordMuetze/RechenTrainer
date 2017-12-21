@@ -1,0 +1,3 @@
+Aufgabe			deine Loesung
+5 + 11 = 16			16
+10 + 11 = 21			21

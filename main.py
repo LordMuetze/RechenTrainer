@@ -82,7 +82,7 @@ def rechenart_abrufen():
 
     else:
         msgbox("System-Error [1]")
-        startseite
+        startseite()
 
 
 
@@ -458,7 +458,7 @@ def uebersicht():
     Dateiname = filesavebox(filetypes=[".txt"])
 
     if Dateiname == None:
-        startseite()
+        pass
 
     else:
         datei = open(Dateiname,"a")
