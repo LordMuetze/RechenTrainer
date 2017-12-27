@@ -50,7 +50,7 @@ def startseite():
 
 
     choices = ["Los gehts", "Verlassen"] #Festlegen der Buttons
-    start = buttonbox("Herzlich Willkommen beim Rechentrainer", "Willkommen", choices) #angeklickten Button an Variable binden
+    start = buttonbox("Herzlich Willkommen beim Rechentrainer", "Willkommen", choices, "zahlenbild.gif") #angeklickten Button an Variable binden
 
 
     #Reset der wichtigsten globalen Variablen mit jeder neuen Runde
