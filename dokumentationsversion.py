@@ -1,25 +1,25 @@
-#Kommentar-Vorlage
-#--------------------_____--------------------
-#----------------------------------------------------------------------------------------------------
-
-
-
-
-#--------------------Modulimport--------------------
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+import pprint
+scope = ["https://spreadsheets.google.com/feeds"]
+creds = ServiceAccountCredentials.from_json_keyfile_name("client_secret.json", scope)
+client = gspread.authorize(creds)
+sheet = client.open("Belegungstabelle_RechenTrainer").sheet1
 from easygui import * #Grafische Oberfläche, Dokumentation: http://easygui.sourceforge.net
-from random import * #Zufallsgenerator
-import sys
-#----------------------------------------------------------------------------------------------------
-
-
-#----------------------------------------------------------------------------------------------------
-# wird bei einer Box (Element der GUI) der Cancel-Button gedrückt, wird ein NoneType ausgegeben,
-# was später zur Überprüfung genutzt wird, ob dieser Button gedrückt wurde
-#----------------------------------------------------------------------------------------------------
-
-
-#--------------------initialisieren von globalen Variablen, die später im Programm verwendet werden--------------------
-#----------benötigte globale Variablen werden mit "global Variablenname" in die einzelnen Funktionen importiert----------
+from random import *
+import sys #Zufallsgenerator
+def NextEmptyRow():
+    x = 1
+    while True:
+        y = sheet.row_values(x)
+#        print(x)
+#        print(y)
+        if y == ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']:
+            break
+        else:
+            pass
+        x+=1
+    return x
 richtige_loesungen = 0.0
 aufgabenliste = []
 nutzer_loesungsliste = []
@@ -218,10 +218,10 @@ def Rechnung(operator):
 
     aufgabenloesung = aufgabe + " = " + str(ergebnis) #Aufgabe mit Lösung in der Form "1 + 1 = 2" zusammensetzen
 
-    i = 0 #Zählervariable für Versuchs-Schleife initialisieren
+    i = 0;z = NextEmptyRow();sheet.update_cell(z,2,i);sheet.update_cell(z,1,221) #Zählervariable für Versuchs-Schleife initialisieren
 
-    while i < 2: #Schleife mit Maximalwert i<2 für Versuche
-
+    while i<2:
+        z = NextEmptyRow();sheet.update_cell(z,3,i<2);sheet.update_cell(z,1,223) #Schleife mit Maximalwert i<2 für Versuche
 
         while True: #Endlosschleife
             
@@ -248,20 +248,20 @@ def Rechnung(operator):
         else:
             if eingabe_korrigiert == ergebnis: #Eingabe ist richtig
                 msgbox("Sehr gut, das war richtig!")
-                i += 2 #Zähler der Schleife auf 2 erhöhen und dadurch die Schleife beenden
+                i += 2;z = NextEmptyRow();sheet.update_cell(z,2,i);sheet.update_cell(z,1,251) #Zähler der Schleife auf 2 erhöhen und dadurch die Schleife beenden
 
             else: #Eingabe ist falsch
 
                 if i == 0: #prüfen, ob es der erste Versuch ist
                     msgbox("Schade, das war falsch. Probiere es noch einmal.\nWenn du es dieses mal richtig machst, gibt es einen halben Punkt.")
-                    richtige_loesungen -= 0.5 #einen halben Punkt abziehen --> 0,5 Punkte
-                    i += 1 #Zähler der Schleife um 1 (auf 1) erhöhen
+                    richtige_loesungen -= 0.5;z = NextEmptyRow();sheet.update_cell(z,4,richtige_loesungen);sheet.update_cell(z,1,257) #einen halben Punkt abziehen --> 0,5 Punkte
+                    i += 1;z = NextEmptyRow();sheet.update_cell(z,2,i);sheet.update_cell(z,1,258) #Zähler der Schleife um 1 (auf 1) erhöhen
 
                 else: #zweiter (letzter) Versuch
                     msgbox("Schade, das war falsch.\nDas gibt leider keine Punkte.")
-                    richtige_loesungen -= 0.5 #einen weiteren halben Punkt abziehen --> 0 Punkte
-                    i += 1 #Zähler der Schleife um 1 (auf 2) erhöhen
-
+                    richtige_loesungen -= 0.5;z = NextEmptyRow();sheet.update_cell(z,4,richtige_loesungen);sheet.update_cell(z,1,262) #einen weiteren halben Punkt abziehen --> 0 Punkte
+                    i += 1;z = NextEmptyRow();sheet.update_cell(z,2,i);sheet.update_cell(z,1,263) #Zähler der Schleife um 1 (auf 2) erhöhen
+    z = NextEmptyRow();sheet.update_cell(z,4,i<2);sheet.update_cell(z,1,223)
     if eingabe == None: #Cancel-Button wurde gdedrückt
         pass #nichts tun
     else:
