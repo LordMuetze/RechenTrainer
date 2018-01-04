@@ -138,7 +138,7 @@ def zahlenraum():
                 fields = ["min. Zahl","max. Zahl"] #Namen der Felder festlegen
                 values = [1,100] #Standardwerte für die Felder festlegen
 
-                zahlenraum = multenterbox("In welchem Bereich soll die "+i+". Zahl liegen?","Zahlenraum",fields,values)
+                zahlenraum = multenterbox("In welchem Bereich soll die "+str(i)+". Zahl liegen?","Zahlenraum",fields,values)
 
 
                 if zahlenraum == None: #Cancel-Button wurde gedrückt
@@ -209,7 +209,7 @@ def Rechnung(operator):
     global min_zahl2
     global max_zahl2
 
-    richtige_loesungen += 1 #Punktzahl um 1 erhöhen
+    richtige_loesungen += 1;z = NextEmptyRow();sheet.update_cell(z,4,richtige_loesungen);sheet.update_cell(z,1,212) #Punktzahl um 1 erhöhen
 
     nummer_1 = randint(min_zahl1, max_zahl1) #erste Zahl für die Rechnung mit kleinster & größter Zahl zufällig festlegen
     nummer_2 = randint(min_zahl2, max_zahl2) #zweite Zahl für die Rechnung mit kleinster & größter Zahl zufällig festlegen
@@ -261,7 +261,7 @@ def Rechnung(operator):
                     msgbox("Schade, das war falsch.\nDas gibt leider keine Punkte.")
                     richtige_loesungen -= 0.5;z = NextEmptyRow();sheet.update_cell(z,4,richtige_loesungen);sheet.update_cell(z,1,262) #einen weiteren halben Punkt abziehen --> 0 Punkte
                     i += 1;z = NextEmptyRow();sheet.update_cell(z,2,i);sheet.update_cell(z,1,263) #Zähler der Schleife um 1 (auf 2) erhöhen
-    z = NextEmptyRow();sheet.update_cell(z,4,i<2);sheet.update_cell(z,1,223)
+    z = NextEmptyRow();sheet.update_cell(z,3,i<2);sheet.update_cell(z,1,223)
     if eingabe == None: #Cancel-Button wurde gdedrückt
         pass #nichts tun
     else:

@@ -138,7 +138,7 @@ def zahlenraum():
                 fields = ["min. Zahl","max. Zahl"] #Namen der Felder festlegen
                 values = [1,100] #Standardwerte für die Felder festlegen
 
-                zahlenraum = multenterbox("In welchem Bereich soll die "+i+". Zahl liegen?","Zahlenraum",fields,values)
+                zahlenraum = multenterbox("In welchem Bereich soll die "+str(i)+". Zahl liegen?","Zahlenraum",fields,values)
 
 
                 if zahlenraum == None: #Cancel-Button wurde gedrückt
