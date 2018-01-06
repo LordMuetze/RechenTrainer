@@ -34,7 +34,6 @@ anzahl_aufgaben = 0
 
 
 
-#--------------------Struktogramm fertig--------------------
 #--------------------Definition der Startseite--------------------
 def startseite():
 
@@ -70,7 +69,6 @@ def startseite():
 
 
 
-#--------------------Struktogramm fertig--------------------
 #--------------------Definition, welche Rechenart trainiert werden soll--------------------
 def rechenart_eingeben():
 
@@ -87,7 +85,6 @@ def rechenart_eingeben():
 
 
 
-#--------------------Struktogramm fertig--------------------
 #--------------------Definition, welche Rechenart trainiert werden soll--------------------
 def rechenart_abrufen():
 
@@ -118,7 +115,6 @@ def rechenart_abrufen():
     
     return eingabe #"eingabe" als Funktionswert ausgeben
 #----------------------------------------------------------------------------------------------------
-
 
 
 
@@ -182,7 +178,6 @@ def zahlenraum():
 
 
 
-#--------------------Struktogramm fertig--------------------
 #--------------------Anzahl der Aufgaben--------------------
 def anzahl_aufgaben_eingeben():
 
@@ -197,7 +192,6 @@ def anzahl_aufgaben_eingeben():
 
 
 
-#--------------------Struktogramm fertig--------------------
 #--------------------Aufgabenstellung mit Eingabe für die Lösung--------------------
 def Rechnung(operator):
 
@@ -214,7 +208,7 @@ def Rechnung(operator):
     nummer_1 = randint(min_zahl1, max_zahl1) #erste Zahl für die Rechnung mit kleinster & größter Zahl zufällig festlegen
     nummer_2 = randint(min_zahl2, max_zahl2) #zweite Zahl für die Rechnung mit kleinster & größter Zahl zufällig festlegen
     aufgabe = str(nummer_1) + " " + str(operator) + " " + str(nummer_2) #Aufgabe in der Form "1 + 1" erstellen
-    ergebnis = eval(aufgabe) #zuvor erstellte Aufgabe berechnen
+    ergebnis = round(eval(aufgabe),2) #zuvor erstellte Aufgabe auf 2 Nachkommastellen berechnen
 
     aufgabenloesung = aufgabe + " = " + str(ergebnis) #Aufgabe mit Lösung in der Form "1 + 1 = 2" zusammensetzen
 
@@ -233,7 +227,7 @@ def Rechnung(operator):
                     break #Endlosschleife wird unterbrochen
 
                 else:
-                    eingabe_korrigiert = float(eingabe) #Fehler wird ausgegeben, wenn sich die Eingabe nicht in einen Float umwandeln lässt (Text,Zeichen,...)
+                    eingabe_korrigiert = round(float(eingabe),2) #Fehler wird ausgegeben, wenn sich die Eingabe nicht in einen Float mit 2 Nachkommastellen umwandeln lässt (zB Text)
                     break #Endlosschleife wird unterbrochen
 
             #tritt ein Fehler auf, wird der except-Teil ausgeführt
@@ -274,7 +268,7 @@ def Rechnung(operator):
 
 
 
-#--------------------Struktogramm fertig--------------------
+
 #--------------------erstellen der Abschlussuebersicht--------------------
 def uebersicht():
 
@@ -312,7 +306,7 @@ def uebersicht():
 
 
 
-#--------------------Struktogramm fertig--------------------
+
 #--------------------Erstellen der main-Funktion--------------------
 #--------------------Gesamtablauf und Zusammenfuehren vorheriger Funktionen--------------------
 def main():
