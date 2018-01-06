@@ -299,7 +299,7 @@ def uebersicht():
         datei = open(Dateiname,"w") #Datei mit obigem Namen erstellen/öffnen und leeren
         datei.write(uebersicht) #"uebersicht" in Datei einfügen
         datei.close() #Datei schließen
-    
+        
     return ausgabe #"ausgabe" als Funktionswert ausgeben
 #----------------------------------------------------------------------------------------------------
 
@@ -370,6 +370,6 @@ def main():
 
 
 
-#--------------------Aufrufen der main-Funktion--------------------
+#--------------------Aufrufen der main-Funktion --> Starten des Programms--------------------
 main()
 #----------------------------------------------------------------------------------------------------
